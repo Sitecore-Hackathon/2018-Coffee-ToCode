@@ -224,7 +224,7 @@ if (typeof ($xa) !== "undefined") {
             searchBox.keyup(function (e) {
                 if (e.target.value.length && e.target.value.length > 0) {
                     ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
-                        var $this = $(this);
+                        var $this = $(el);
 
                         if (!$this.hasClass('expanded')) {
                             $this.addClass('expanded').addClass('temp-expanded');
@@ -234,7 +234,7 @@ if (typeof ($xa) !== "undefined") {
                     });
                 } else {
                     ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
-                        var $this = $(this);
+                        var $this = $(el);
 
                         if ($this.hasClass('temp-expanded')) {
                             $this.removeClass('temp-expanded');
@@ -251,12 +251,29 @@ if (typeof ($xa) !== "undefined") {
                 ulFirst.find('.ui-draggable').each(function (index, el) {
                     var $el = $(el);
                     if ($el.text().toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
-                        $el.parent('li').show();
+                        $el.parent('li').show().removeClass('invalid');
                     } else {
-                        $el.parent('li').hide();
+                        $el.parent('li').hide().addClass('invalid');
                     }
                 });
-            }, );
+
+                ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
+                    var $this = $(el);
+                    var count = 0;
+
+                    $this.parent().find('li').each(function(n, el) {
+                        if (!$(el).hasClass('invalid')) {
+                            count++;
+                        }
+                    });
+
+                    if (count == 0) {
+                        $this.hide();
+                    } else {
+                        $this.show();
+                    }
+                });
+            });
 
             var previousParent = '';
             var ulSecond = '' ;
