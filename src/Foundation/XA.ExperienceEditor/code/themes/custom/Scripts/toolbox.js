@@ -216,21 +216,48 @@ if (typeof ($xa) !== "undefined") {
                 + '<div class="handle sxa-toolbox-header">' + '<div class="sxa-toolbox-label">' + translations.Toolbox + '</div>' + '<div class="expand-toolbox"></div></div>');
             
             var searchBox = $('<input placeholder="Search controls ..." style="width:100%;padding:3px 6px" />');
-
-            searchBox.keyup(function(e) {
-                $('#sxa-toolbox span.ui-draggable').each(function (index, el) {
-                    var $el = $(el);
-                    if ($el.text().toLowerCase().indexOf(e.target.value)) {
-                        $el.parent('li').hide();
-                    } else {
-                        $el.parent('li').show();
-                    }
-                });
-            });
-
+            
             newToolbox.append($('<div id="sxa-search-box"></div>').append(searchBox));
 
             var ulFirst = $('<div id="sxa-toolbox-root-ul">');
+            
+            searchBox.keyup(function (e) {
+                if (e.target.value.length && e.target.value.length > 0) {
+                    ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
+                        var $this = $(this);
+
+                        if (!$this.hasClass('expanded')) {
+                            $this.addClass('expanded').addClass('temp-expanded');
+                            $this.parent().find('ul').slideDown("fast");
+                            saveToolboxSettings();
+                        }
+                    });
+                } else {
+                    ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
+                        var $this = $(this);
+
+                        if ($this.hasClass('temp-expanded')) {
+                            $this.removeClass('temp-expanded');
+
+                            if ($this.hasClass('expanded')) {
+                                $this.removeClass('expanded');
+                                $this.parent().find('ul').slideUp("fast");
+                                saveToolboxSettings();
+                            }
+                        }
+                    });
+                }
+
+                ulFirst.find('.ui-draggable').each(function (index, el) {
+                    var $el = $(el);
+                    if ($el.text().toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
+                        $el.parent('li').show();
+                    } else {
+                        $el.parent('li').hide();
+                    }
+                });
+            }, );
+
             var previousParent = '';
             var ulSecond = '' ;
             if (items == null) {
