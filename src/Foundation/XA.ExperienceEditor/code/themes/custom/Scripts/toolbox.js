@@ -214,6 +214,21 @@ if (typeof ($xa) !== "undefined") {
                 + '<div class="touch-btn back-to-desktop"></div>'
                 + '</div><div class="touch-expander"></div><div class="normal-expander"></div>'
                 + '<div class="handle sxa-toolbox-header">' + '<div class="sxa-toolbox-label">' + translations.Toolbox + '</div>' + '<div class="expand-toolbox"></div></div>');
+            
+            var searchBox = $('<input placeholder="Search controls ..." style="width:100%;padding:3px 6px" />');
+
+            searchBox.keyup(function(e) {
+                $('#sxa-toolbox span.ui-draggable').each(function (index, el) {
+                    var $el = $(el);
+                    if ($el.text().toLowerCase().indexOf(e.target.value)) {
+                        $el.parent('li').hide();
+                    } else {
+                        $el.parent('li').show();
+                    }
+                });
+            });
+
+            newToolbox.append($('<div id="sxa-search-box"></div>').append(searchBox));
 
             var ulFirst = $('<div id="sxa-toolbox-root-ul">');
             var previousParent = '';
@@ -243,7 +258,6 @@ if (typeof ($xa) !== "undefined") {
                 ulFirst.html('<div class="sxa-toolbox-empty">' + translations.NoRenderings + '</div>');
                 newToolbox.find('.hide-toolbox').addClass('show-toolbox');
             }
-
             newToolbox.append(ulFirst);
 
             if (checkTouch()) {
@@ -544,8 +558,6 @@ if (typeof ($xa) !== "undefined") {
                 cleanup();
             }
         };
-
-        console.log("Welcome to CoffeeToCode!");
 
         return pub;
     }($xa));
