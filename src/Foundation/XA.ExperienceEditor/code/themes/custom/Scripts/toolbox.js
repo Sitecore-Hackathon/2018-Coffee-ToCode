@@ -216,21 +216,65 @@ if (typeof ($xa) !== "undefined") {
                 + '<div class="handle sxa-toolbox-header">' + '<div class="sxa-toolbox-label">' + translations.Toolbox + '</div>' + '<div class="expand-toolbox"></div></div>');
             
             var searchBox = $('<input placeholder="Search controls ..." style="width:100%;padding:3px 6px" />');
+            
+            newToolbox.append($('<div id="sxa-search-box"></div>').append(searchBox));
 
-            searchBox.keyup(function(e) {
-                $('#sxa-toolbox span.ui-draggable').each(function (index, el) {
+            var ulFirst = $('<div id="sxa-toolbox-root-ul">');
+            
+            searchBox.keyup(function (e) {
+                if (e.target.value.length && e.target.value.length > 0) {
+                    ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
+                        var $this = $(el);
+
+                        if (!$this.hasClass('expanded')) {
+                            $this.addClass('expanded').addClass('temp-expanded');
+                            $this.parent().find('ul').slideDown("fast");
+                            saveToolboxSettings();
+                        }
+                    });
+                } else {
+                    ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
+                        var $this = $(el);
+
+                        if ($this.hasClass('temp-expanded')) {
+                            $this.removeClass('temp-expanded');
+
+                            if ($this.hasClass('expanded')) {
+                                $this.removeClass('expanded');
+                                $this.parent().find('ul').slideUp("fast");
+                                saveToolboxSettings();
+                            }
+                        }
+                    });
+                }
+
+                ulFirst.find('.ui-draggable').each(function (index, el) {
                     var $el = $(el);
-                    if ($el.text().toLowerCase().indexOf(e.target.value)) {
-                        $el.parent('li').hide();
+                    if ($el.text().toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
+                        $el.parent('li').show().removeClass('invalid');
                     } else {
-                        $el.parent('li').show();
+                        $el.parent('li').hide().addClass('invalid');
+                    }
+                });
+
+                ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
+                    var $this = $(el);
+                    var count = 0;
+
+                    $this.parent().find('li').each(function(n, el) {
+                        if (!$(el).hasClass('invalid')) {
+                            count++;
+                        }
+                    });
+
+                    if (count == 0) {
+                        $this.hide();
+                    } else {
+                        $this.show();
                     }
                 });
             });
 
-            newToolbox.append($('<div id="sxa-search-box"></div>').append(searchBox));
-
-            var ulFirst = $('<div id="sxa-toolbox-root-ul">');
             var previousParent = '';
             var ulSecond = '' ;
             if (items == null) {
