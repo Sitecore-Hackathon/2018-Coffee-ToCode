@@ -1,0 +1,34 @@
+﻿---
+ID: "f027a1e0-e9f2-4595-b2dc-5c9f6a572509"
+Parent: "e33884de-b38e-4a1f-8501-377df30745cf"
+Template: "962b53c4-f93b-4df9-9821-415c867b8903"
+Path: /sitecore/media library/Base Themes/CoffeeToCodeEditingTheme/Styles/partialdesignhighlight
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: "-/media/5851591ADC854B7DAE9CA22351D3ED00.ashx?h=16&thn=1&w=16"
+- ID: "40e50ed9-ba07-4702-992e-a912738d32dc"
+  Hint: Blob
+  BlobID: "f3c004fb-eae2-4223-a706-b70af2ed9e4d"
+  Value: LmJvbGRIaWdobGlnaHQgeyBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTgwLCAyMDAsIDApICFpbXBvcnRhbnQ7IGJhY2tncm91bmQtaW1hZ2U6IG5vbmUgIWltcG9ydGFudDsgb3BhY2l0eTogMC43ICFpbXBvcnRhbnQ7IH0NCi5zY0hvdmVyRnJhbWVTaWRlVmVydGljYWwuYm9sZEhpZ2hsaWdodCB7IHdpZHRoOiAycHg7IH0NCi5zY0hvdmVyRnJhbWVTaWRlSG9yaXpvbnRhbC5ib2xkSGlnaGxpZ2h0IHsgaGVpZ2h0OiAycHg7IH0NCiAuc2NIaWxnaGxpZ2h0ZWRDaHJvbWUuYm9sZEhpZ2hsaWdodC5zY1RsSG92ZXJGcmFtZUNvcm5lciwgDQogLnNjSGlsZ2hsaWdodGVkQ2hyb21lLmJvbGRIaWdobGlnaHQuc2NUckhvdmVyRnJhbWVDb3JuZXIsDQogLnNjSGlsZ2hsaWdodGVkQ2hyb21lLmJvbGRIaWdobGlnaHQuc2NCbEhvdmVyRnJhbWVDb3JuZXIsDQogLnNjSGlsZ2hsaWdodGVkQ2hyb21lLmJvbGRIaWdobGlnaHQuc2NCckhvdmVyRnJhbWVDb3JuZXIgew0KCXdpZHRoOiAycHg7DQoJaGVpZ2h0OiAycHg7DQp9DQoNCi5zeGFGcmFtZSB7DQogICAgdmlzaWJpbGl0eTogdmlzaWJsZSAhaW1wb3J0YW50Ow0KICAgIGRpc3BsYXk6IGJsb2NrICFpbXBvcnRhbnQ7DQp9DQo=
+- ID: "6954b7c7-2487-423f-8600-436cb3b6dc0e"
+  Hint: Size
+  Value: 605
+- ID: "6f47a0a5-9c94-4b48-abeb-42d38def6054"
+  Hint: Mime Type
+  Value: text/css
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
+  Hint: Extension
+  Value: css
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160509T120147Z

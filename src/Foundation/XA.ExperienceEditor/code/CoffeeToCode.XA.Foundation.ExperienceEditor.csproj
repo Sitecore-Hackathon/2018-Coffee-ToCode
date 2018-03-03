@@ -110,7 +110,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Rainbow.config" />
-    <Content Include="App_Config\Include\Z.Foundation.Overrides\CoffeeToCode.XA.Foundation.ExperienceEditor.Serialization.config" />
+    <Content Include="App_Config\Include\Z.Foundation.Overrides\CoffeeToCode.XA.Foundation.ExperienceEditor.Serialization.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.UI.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.Remote.config.disabled" />
@@ -124,7 +126,16 @@
     <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
-    <Content Include="App_Config\Include\z.CoffeeToCode.Serialization.config" />
+    <Content Include="App_Config\Include\z.CoffeeToCode.Serialization.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="themes\custom\Scripts\dragndrop.js" />
+    <None Include="themes\custom\Scripts\gridlines.js" />
+    <None Include="themes\custom\Scripts\initializer.js" />
+    <None Include="themes\custom\Scripts\popupsGecko.js" />
+    <None Include="themes\custom\Scripts\treeview.js" />
+    <None Include="themes\custom\Scripts\xamover.js" />
+    <None Include="themes\custom\Scripts\toolbox.js" />
     <None Include="packages.config" />
     <None Include="Web.config" />
   </ItemGroup>
@@ -139,9 +150,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="sitecore\shell\client\Sitecore\CoffeeToCode.XA\CoffeeToCode.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
