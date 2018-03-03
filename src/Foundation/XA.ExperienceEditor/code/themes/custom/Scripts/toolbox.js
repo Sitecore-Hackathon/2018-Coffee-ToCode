@@ -214,69 +214,95 @@ if (typeof ($xa) !== "undefined") {
                 + '<div class="touch-btn back-to-desktop"></div>'
                 + '</div><div class="touch-expander"></div><div class="normal-expander"></div>'
                 + '<div class="handle sxa-toolbox-header">' + '<div class="sxa-toolbox-label">' + translations.Toolbox + '</div>' + '<div class="expand-toolbox"></div></div>');
-            
-            var searchBox = $('<input placeholder="Search controls ..." style="width:100%;padding:3px 6px" />');
-            
+
+            var searchBox = $('<input placeholder="Search controls ..." />');
+
             newToolbox.append($('<div id="sxa-search-box"></div>').append(searchBox));
 
-            var ulFirst = $('<div id="sxa-toolbox-root-ul">');
-            
-            searchBox.keyup(function (e) {
-                if (e.target.value.length && e.target.value.length > 0) {
-                    ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
-                        var $this = $(el);
-
-                        if (!$this.hasClass('expanded')) {
-                            $this.addClass('expanded').addClass('temp-expanded');
-                            $this.parent().find('ul').slideDown("fast");
-                            saveToolboxSettings();
-                        }
-                    });
-                } else {
+            $('<div class="sxa-button-group"></div>').append(
+                $('<button>Collapse all</button>').click(function () {
                     ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
                         var $this = $(el);
-
-                        if ($this.hasClass('temp-expanded')) {
-                            $this.removeClass('temp-expanded');
-
-                            if ($this.hasClass('expanded')) {
-                                $this.removeClass('expanded');
-                                $this.parent().find('ul').slideUp("fast");
-                                saveToolboxSettings();
-                            }
-                        }
+                        $this.removeClass('expanded');
+                        $this.parent().find('ul').slideUp("fast");
+                        saveToolboxSettings();
                     });
+                }),
+                $('<button>Expand all</button>').click(function () {
+                    ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
+                        var $this = $(el);
+                        $this.addClass('expanded');
+                        $this.parent().find('ul').slideDown("fast");
+                        saveToolboxSettings();
+                    });
+                })).appendTo(searchBox.parent());
+
+            var ulFirst = $('<div id="sxa-toolbox-root-ul">');
+            var timeout;
+
+            searchBox.keyup(function (e) {
+                if (timeout) {
+                    clearTimeout(timeout);
+                    timeout = null;
                 }
 
-                ulFirst.find('.ui-draggable').each(function (index, el) {
-                    var $el = $(el);
-                    if ($el.text().toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
-                        $el.parent('li').show().removeClass('invalid');
+                timeout = setTimeout(function () {
+                    if (e.target.value.length && e.target.value.length > 0) {
+                        ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
+                            var $this = $(el);
+
+                            if (!$this.hasClass('expanded')) {
+                                $this.addClass('expanded').addClass('temp-expanded');
+                                $this.parent().find('ul').slideDown("fast");
+                                saveToolboxSettings();
+                            }
+                        });
                     } else {
-                        $el.parent('li').hide().addClass('invalid');
+                        ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
+                            var $this = $(el);
+
+                            if ($this.hasClass('temp-expanded')) {
+                                $this.removeClass('temp-expanded');
+
+                                if ($this.hasClass('expanded')) {
+                                    $this.removeClass('expanded');
+                                    $this.parent().find('ul').slideUp("fast");
+                                    saveToolboxSettings();
+                                }
+                            }
+                        });
                     }
-                });
 
-                ulFirst.find('[id^=sxa-toolbox-section]').each(function(index, el) {
-                    var $this = $(el);
-                    var count = 0;
-
-                    $this.parent().find('li').each(function(n, el) {
-                        if (!$(el).hasClass('invalid')) {
-                            count++;
+                    ulFirst.find('.ui-draggable').each(function (index, el) {
+                        var $el = $(el);
+                        if ($el.text().toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
+                            $el.parent('li').show().removeClass('invalid');
+                        } else {
+                            $el.parent('li').hide().addClass('invalid');
                         }
                     });
 
-                    if (count == 0) {
-                        $this.hide();
-                    } else {
-                        $this.show();
-                    }
-                });
+                    ulFirst.find('[id^=sxa-toolbox-section]').each(function (index, el) {
+                        var $this = $(el);
+                        var count = 0;
+
+                        $this.parent().find('li').each(function (n, el) {
+                            if (!$(el).hasClass('invalid')) {
+                                count++;
+                            }
+                        });
+
+                        if (count == 0) {
+                            $this.hide();
+                        } else {
+                            $this.show();
+                        }
+                    });
+                }, 300);
             });
 
             var previousParent = '';
-            var ulSecond = '' ;
+            var ulSecond = '';
             if (items == null) {
                 return toolbox;
             }

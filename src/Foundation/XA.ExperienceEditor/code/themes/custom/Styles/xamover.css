@@ -1,0 +1,1016 @@
+iframe.scSpeakWebEditRibbon {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999;
+}
+
+#wrapper, #sxa-toolbox {
+    -webkit-transition: 300ms linear;
+    -moz-transition: 300ms linear;
+    -o-transition: 300ms linear;
+    -ms-transition: 300ms linear;
+    transition: 300ms linear;
+}
+
+    #sxa-toolbox:not(.show-toolbox) {
+        right: -266px;
+    }
+
+        #sxa-toolbox:not(.show-toolbox) .normal-expander {
+            right: 268px;
+        }
+
+            #sxa-toolbox:not(.show-toolbox) .normal-expander::after {
+                background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Common/16x16/white/navigate_left.png") no-repeat center center;
+            }
+
+#sxa-toolbox {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    position: fixed;
+    z-index: 9051;
+    font-size: 12px;
+    background: #ffffff;
+    color: #222222;
+    font-family: "Open Sans", Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    min-width: 270px;
+    width: 270px;
+    -ms-touch-action: none;
+    right: 0px;
+    height: 100%;
+    border-left: 4px solid #474747;
+    background: #f7f7f7;
+    background-color: #969696;
+}
+
+    #sxa-toolbox .sxa-toolbox-header {
+        height: 39px;
+    }
+
+    #sxa-toolbox .normal-expander {
+        display: block;
+        position: absolute;
+        background: #474747 no-repeat;
+        height: 64px;
+        width: 32px;
+        top: 400px;
+        right: 270px;
+        cursor: pointer;
+    }
+
+        #sxa-toolbox .normal-expander::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Common/16x16/white/navigate_right.png") no-repeat center center;
+        }
+
+    #sxa-toolbox .touch-header {
+        display: none;
+    }
+
+    #sxa-toolbox .gripper-icon {
+        display: none;
+    }
+
+    #sxa-toolbox .handle {
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        position: relative;
+        font-weight: bold;
+        color: #ffffff;
+        background: #474747;
+        border: none;
+    }
+
+        #sxa-toolbox .handle div {
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        #sxa-toolbox .handle .hide-toolbox {
+            position: absolute;
+            top: 8px;
+            right: 7px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #sxa-toolbox .handle .icon {
+            display: block;
+            background: url("/sitecore/shell/themes/standard/Images/accordion_down.png") no-repeat;
+            background-position: center center !important;
+            width: 16px;
+            height: 16px;
+        }
+
+        #sxa-toolbox .handle .expand-toolbox {
+            position: absolute;
+            z-index: 1000;
+            top: -2px;
+            width: 144px;
+            height: 40px;
+            right: -54px;
+        }
+
+            #sxa-toolbox .handle .expand-toolbox:after {
+                content: '';
+                background: url("../images/toolbox_mode_desktop.png") no-repeat 1px 2px;
+                background-size: 75px;
+                position: absolute;
+                top: 2px;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+    #sxa-toolbox.show-toolbox #sxa-toolbox-root-ul {
+        display: block;
+    }
+
+    #sxa-toolbox.show-toolbox .handle .icon {
+        background: url("/sitecore/shell/themes/standard/Images/accordion_up.png") no-repeat;
+        background-position: center center !important;
+    }
+
+    #sxa-toolbox.show-toolbox .touch-expander::after {
+        background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Common/16x16/white/navigate_right.png") no-repeat center center !important;
+    }
+
+    #sxa-toolbox ~ #wrapper {
+        position: relative;
+        left: 0;
+    }
+
+    #sxa-toolbox #sxa-toolbox-root-ul ul {
+        display: none;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+        #sxa-toolbox #sxa-toolbox-root-ul ul li {
+            -moz-transition: background 0.3s;
+            -o-transition: background 0.3s;
+            -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: pointer;
+            background: #f7f7f7;
+            padding: 0;
+            border-bottom: 1px solid #f7f7f7;
+        }
+
+            #sxa-toolbox #sxa-toolbox-root-ul ul li:hover {
+                background: #7f8c8d;
+                color: #ffffff;
+            }
+
+            #sxa-toolbox #sxa-toolbox-root-ul ul li span {
+                display: block;
+                padding: 5px 0 5px 25px;
+            }
+
+    #sxa-toolbox #sxa-toolbox-root-ul li ul {
+        margin-left: 0;
+    }
+
+    #sxa-toolbox .sxa-toolbox-empty {
+        max-width: 266px;
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: center;
+        cursor: not-allowed;
+        background: #CDCDCD;
+    }
+
+    #sxa-toolbox #sxa-toolbox-root-ul {
+        margin: 0;
+        z-index: 9999;
+    }
+
+        #sxa-toolbox #sxa-toolbox-root-ul .mCSB_container span.ui-draggable {
+            line-height: 18px;
+        }
+
+        #sxa-toolbox #sxa-toolbox-root-ul .mCSB_container > div > span {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: block;
+            margin: 0;
+            font-weight: 600;
+            font-family: "Open Sans", Arial, sans-serif;
+            color: #ffffff;
+            cursor: pointer;
+            text-transform: uppercase;
+            background-color: #969696;
+            position: relative;
+            padding: 5px 0 5px 20px;
+            border-bottom: 1px solid #7f8c8d;
+            height: 29px;
+            line-height: 21px;
+        }
+
+            #sxa-toolbox #sxa-toolbox-root-ul .mCSB_container > div > span:after {
+                content: '';
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                background: url("/sitecore/shell/themes/standard/Images/accordion_down.png") no-repeat center center;
+            }
+
+            #sxa-toolbox #sxa-toolbox-root-ul .mCSB_container > div > span.expanded {
+                border-left: 5px solid #DC291E;
+                padding: 5px 0 5px 15px;
+                background: #474747;
+            }
+
+                #sxa-toolbox #sxa-toolbox-root-ul .mCSB_container > div > span.expanded:after {
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    width: 20px;
+                    height: 20px;
+                    background: url("/sitecore/shell/themes/standard/Images/accordion_up.png") no-repeat center center;
+                }
+
+            #sxa-toolbox #sxa-toolbox-root-ul .mCSB_container > div > span:hover {
+                background-color: #292929;
+            }
+
+    #sxa-toolbox #sxa-toolbox-root-ul {
+        overflow-y: auto;
+    }
+
+    #sxa-toolbox.show-toolbox {
+        right: 0 !important;
+    }
+
+        #sxa-toolbox.show-toolbox ~ #wrapper {
+            box-sizing: content-box;
+            padding-right: 272px;
+            width: initial;
+        }
+
+    #sxa-toolbox .sxa-toolbox-label {
+        float: left;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-left: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    #sxa-toolbox.touch-version {
+        position: fixed;
+        right: -266px !important;
+        height: 100%;
+        width: auto;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        #sxa-toolbox.touch-version .sxa-toolbox-label {
+            margin-left: 25px;
+        }
+
+        #sxa-toolbox.touch-version::before {
+            border-right: 4px solid #474747;
+            content: '';
+            position: absolute;
+            top: 0px;
+            right: -3px;
+            left: 0px;
+            bottom: 0px;
+            z-index: -1;
+        }
+
+        #sxa-toolbox.touch-version .sxa-toolbox-empty {
+            background: none;
+        }
+
+        #sxa-toolbox.touch-version .normal-expander {
+            display: none;
+        }
+
+        #sxa-toolbox.touch-version .touch-expander {
+            display: block;
+            position: absolute;
+            background: #474747 no-repeat;
+            height: 64px;
+            width: 32px;
+            top: 500px;
+            left: -36px;
+            cursor: pointer;
+        }
+
+            #sxa-toolbox.touch-version .touch-expander::after {
+                content: '';
+                position: absolute;
+                top: 20px;
+                right: 5px;
+                width: 20px;
+                height: 20px;
+                background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Common/16x16/white/navigate_left.png") no-repeat center center;
+            }
+
+        #sxa-toolbox.touch-version .touch-header {
+            background-color: #474747;
+            display: inline-block;
+            color: #ffffff;
+            width: 100%;
+        }
+
+            #sxa-toolbox.touch-version .touch-header .touch-btn {
+                padding-right: 90px;
+                padding-bottom: 8px;
+                height: 36px;
+                float: right;
+            }
+
+                #sxa-toolbox.touch-version .touch-header .touch-btn:after {
+                    content: '';
+                    background: url("../images/toolbox_mode_touch.png") no-repeat 1px 2px;
+                    background-size: 75px;
+                    position: absolute;
+                    width: 96px;
+                    height: 40px;
+                }
+
+        #sxa-toolbox.touch-version .gripper-icon {
+            display: block !important;
+            width: 30px;
+            height: 30px;
+            cursor: move;
+            font-weight: bold;
+            margin-left: -30px;
+            margin-top: 5px;
+            float: left;
+        }
+
+            #sxa-toolbox.touch-version .gripper-icon svg {
+                fill: #747474;
+            }
+
+        #sxa-toolbox.touch-version .handle {
+            display: none;
+        }
+
+        #sxa-toolbox.touch-version .hide-toolbox .icon {
+            position: relative;
+            top: 7px;
+            left: 2px;
+        }
+
+        #sxa-toolbox.touch-version.show-toolbox {
+            right: 0 !important;
+        }
+
+            #sxa-toolbox.touch-version.show-toolbox ~ #wrapper {
+                width: -webkit-calc(100% - 272px);
+                width: -moz-calc(100% - 272px);
+                width: calc(100% - 272px);
+            }
+
+        #sxa-toolbox.touch-version .mCSB_container ul li {
+            padding-left: 35px !important;
+        }
+
+            #sxa-toolbox.touch-version .mCSB_container ul li span {
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                display: block;
+                padding: 15px 5px 15px 35px !important;
+                background-position: 5px 10px !important;
+            }
+
+        #sxa-toolbox.touch-version #sxa-toolbox-root-ul {
+            margin: 0;
+            margin-top: -5px;
+        }
+
+            #sxa-toolbox.touch-version #sxa-toolbox-root-ul .mCSB_container > div > span {
+                padding: 10px 0 10px 25px;
+                background-position: 6px 12px;
+                height: 39px;
+            }
+
+                #sxa-toolbox.touch-version #sxa-toolbox-root-ul .mCSB_container > div > span:after {
+                    top: 8px;
+                }
+
+                #sxa-toolbox.touch-version #sxa-toolbox-root-ul .mCSB_container > div > span.expanded:after {
+                    top: 8px;
+                }
+
+.sxa-toolbox-div {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: auto;
+    clear: both;
+    position: relative;
+    height: auto;
+    overflow: visible;
+}
+
+@-webkit-keyframes scaleout {
+    0% {
+        -webkit-transform: scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleout {
+    0% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.sxa-toolbox-div .zg-delightful-droppable {
+    top: 0px;
+}
+
+.sxa-toolbox-droppable.toolbox-dropping, .sxa-toolbox-div.toolbox-dropping {
+    position: relative;
+    min-height: 80px;
+}
+
+    .sxa-toolbox-droppable.toolbox-dropping .inner, .sxa-toolbox-div.toolbox-dropping .inner {
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        content: '';
+        position: absolute;
+        top: -20px;
+        z-index: 9999;
+        left: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #96A557 !important;
+        -webkit-animation: scaleout 1.0s infinite ease-in-out;
+        animation: scaleout 1.0s infinite ease-in-out;
+    }
+
+    .sxa-toolbox-droppable.toolbox-dropping .inner, .sxa-toolbox-div.toolbox-dropping .inner {
+        top: -27px;
+    }
+
+.sxa-toolbox-droppable {
+    font-size: 12px;
+    font-size: 1.2rem;
+    font-family: "Open Sans", Arial, sans-serif;
+    position: absolute;
+    width: 100%;
+    padding: 5px 0 5px 5px;
+}
+
+    .sxa-toolbox-droppable.hovered {
+        border: 1px solid #222222;
+    }
+
+.boxed .sxa-toolbox-droppable {
+    left: 0;
+    right: 0;
+}
+
+.scEmptyPlaceholder .zg-delightful-droppable.hovered {
+    margin-top: -50px !important;
+    height: 100px !important;
+}
+
+.scEmptyPlaceholder.toolbox-dropping .inner {
+    top: 20px !important;
+}
+
+.zg-delightful-droppable {
+    position: absolute;
+    left: 50%;
+    margin-left: -50%;
+    top: 50%;
+    width: 100%;
+    opacity: 0.50;
+    outline: 5px solid transparent;
+}
+
+    .zg-delightful-droppable .inner {
+        width: 100%;
+        height: 4px;
+        position: relative;
+        background-color: #0F7CC1;
+    }
+
+    .zg-delightful-droppable.hovered {
+        background-color: #0F7CC1;
+        height: 4px;
+        border: 0;
+        opacity: 1;
+        box-sizing: content-box;
+    }
+
+        .zg-delightful-droppable.hovered .inner {
+            background: none;
+        }
+
+.zg-delightful-droppable-image {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAQCAYAAAB3AH1ZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAABFgAAARYBhMcjdgAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMzQDW3oAAACLSURBVEhLvc7LDYAgFERRO7Bhm6OyZzB5CYxX/rI4C0eY4TCzYecVLNK8B4YtfHz2ERjW6LjTcy0wLKHhlJ6vwfALDRK9V4IhoaESvf8FQ0UDLbSHYJii4h7apzB0VDhCe1MYRlQ0Q/sdhlSwgu5Er4AurqR72Qdd+EO6uX3cZQ+gAzs8D6Af+wS7Ab4EPSwqztgYAAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 16px;
+    position: absolute;
+    opacity: 0.50;
+    left: 47.5%;
+    top: 4px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+    .zg-delightful-droppable-image.hovered-icon {
+        opacity: 1;
+    }
+
+    .zg-delightful-droppable-image.rotated {
+        -webkit-transform: rotate(180deg);
+        /* Chrome and other webkit browsers */
+        -moz-transform: rotate(180deg);
+        /* FF */
+        -o-transform: rotate(180deg);
+        /* Opera */
+        -ms-transform: rotate(180deg);
+        /* IE9 */
+        transform: rotate(180deg);
+        /* W3C compliant browsers */
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, DX=0, DY=0, SizingMethod='auto expand');
+        /* IE8 and below */
+        top: -16px;
+    }
+
+.scHoverFrameSideHorizontal {
+    display: none !important;
+}
+
+.scHoverFrameSideVertical {
+    display: none !important;
+}
+
+.no-pointer-events {
+    pointer-events: none;
+}
+
+.zg-touch .ui-droppable.sxa-toolbox-droppable {
+    padding: 10px 0 10px 10px;
+}
+
+.xa-rendering-dragger {
+    background-image: url("../images/gripbg.gif");
+    width: 55%;
+    height: 12px;
+    cursor: move;
+    font-weight: bold;
+    position: absolute;
+    right: 5%;
+    margin-top: -15px;
+}
+
+.ui-draggable-dragging.toolbox-item {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: 0.8;
+    font-size: 14px;
+    font-size: 1.4rem;
+    background-position: top 5px center !important;
+    background-size: 24px 24px !important;
+    background-color: #161C22 !important;
+    color: #ffffff;
+    padding: 30px 20px 10px 20px;
+    z-index: 10001;
+    cursor: pointer;
+}
+
+.ui-draggable-dragging .sxa-toolbox-droppable-pos {
+    color: #96A557;
+}
+
+.sc_LargeDropDownButton_DropDownItemsContainer {
+    position: fixed !important;
+}
+
+.partialDesignDropDown {
+    max-height: 380px;
+}
+
+    .partialDesignDropDown .sc_DropDownItemText {
+        line-height: 18px;
+        font-weight: normal;
+    }
+
+    .partialDesignDropDown .showArrow .sc_DropDownItemText {
+        color: #2b2b2b;
+    }
+
+    .partialDesignDropDown .sc_DropDownItem {
+        height: 38px;
+        position: relative;
+    }
+
+        .partialDesignDropDown .sc_DropDownItem .sc_DropDownItemLink {
+            padding-right: 20px !important;
+        }
+
+            .partialDesignDropDown .sc_DropDownItem .sc_DropDownItemLink .sc_DropDownItemImageWrapper {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 16px;
+                height: 16px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .partialDesignDropDown .sc_DropDownItem .sc_DropDownItemLink .sc_DropDownItemText {
+                padding-left: 20px;
+            }
+
+.pageDesignsDropDown {
+    max-height: 380px;
+}
+
+    .pageDesignsDropDown .sc_DropDownItemText {
+        line-height: 18px;
+        font-weight: normal;
+    }
+
+    .pageDesignsDropDown .showArrow .sc_DropDownItemText {
+        color: #2b2b2b;
+    }
+
+    .pageDesignsDropDown .sc_DropDownItem {
+        height: 38px;
+        position: relative;
+    }
+
+        .pageDesignsDropDown .sc_DropDownItem .sc_DropDownItemLink {
+            padding-right: 20px !important;
+        }
+
+            .pageDesignsDropDown .sc_DropDownItem .sc_DropDownItemLink .sc_DropDownItemImageWrapper {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 16px;
+                height: 16px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .pageDesignsDropDown .sc_DropDownItem .sc_DropDownItemLink .sc_DropDownItemText {
+                padding-left: 20px;
+            }
+
+.zg-height-fix {
+    height: 100px;
+}
+
+.sxa-disabled-placeholder {
+    position: relative;
+    background-color: #FF0000;
+    opacity: 0.2;
+}
+
+    .sxa-disabled-placeholder:before {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 50%;
+        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMjU2LDBDMTE0LjYxNSwwLDAsMTE0LjYxNiwwLDI1NnMxMTQuNjE1LDI1NiwyNTYsMjU2czI1Ni0xMTQuNjE2LDI1Ni0yNTZTMzk3LjM4NSwwLDI1NiwweiBNNjYuNzgzLDI1Ng0KCQkJYzAtMTA0LjUwMyw4NC43MTYtMTg5LjIxNywxODkuMjE3LTE4OS4yMTdjNDAuMTksMCw3Ny40NDYsMTIuNTQxLDEwOC4wODksMzMuOTA3TDEwMC42ODksMzY0LjA4OQ0KCQkJQzc5LjMyMywzMzMuNDQ2LDY2Ljc4MywyOTYuMTksNjYuNzgzLDI1NnogTTI1Niw0NDUuMjE3Yy00MC4xOSwwLTc3LjQ0Ni0xMi41NDEtMTA4LjA4OS0zMy45MDdsMjYzLjM5OS0yNjMuMzk5DQoJCQljMjEuMzY2LDMwLjY0MywzMy45MDcsNjcuODk5LDMzLjkwNywxMDguMDg5QzQ0NS4yMTcsMzYwLjUwMSwzNjAuNTAxLDQ0NS4yMTcsMjU2LDQ0NS4yMTd6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=") center 0 no-repeat;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+.notify-box {
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    background: #0F7CC1;
+    color: #ffffff;
+    padding: 8px;
+    margin: 20px;
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+    .notify-box.visible {
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+        opacity: 0.8;
+    }
+
+    .notify-box.touch-version {
+        right: auto;
+    }
+
+.row {
+    position: relative;
+}
+
+.canvas-lines {
+    position: absolute;
+    top: 0;
+    z-index: 998;
+    pointer-events: none;
+    display: none;
+}
+
+    .canvas-lines.visible {
+        display: block;
+    }
+
+        .canvas-lines.visible .grid-column {
+            position: relative !important;
+            z-index: 998;
+            top: 0;
+            padding: 0px;
+        }
+
+            .canvas-lines.visible .grid-column:nth-child(odd) {
+                background: rgba(255, 255, 255, 0.3);
+            }
+
+            .canvas-lines.visible .grid-column:nth-child(even) {
+                background: rgba(15, 124, 193, 0.3);
+            }
+
+.zg-cascade-delete {
+    position: relative;
+    overflow: hidden;
+}
+
+    .zg-cascade-delete:before {
+        background-image: url("data:image/png;base64,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");
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        display: block !important;
+        height: 100%;
+        z-index: 10;
+    }
+
+.zg-variant-switcher-toolbar {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+    .zg-variant-switcher-toolbar .scChromeControls {
+        -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.175);
+        -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.175);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.175);
+    }
+
+.zg-variant-switcher {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 1.5em;
+    padding-top: 2px;
+    border-top: 1px solid #ccc;
+}
+
+    .zg-variant-switcher .zg-variant-tip {
+        display: none;
+    }
+
+    .zg-variant-switcher .zg-variant-header {
+        float: left;
+        font-weight: bold !important;
+        width: 15%;
+        padding-left: 2px;
+        margin-top: 4px;
+        box-sizing: border-box;
+    }
+
+        .zg-variant-switcher .zg-variant-header:hover {
+            background: none;
+        }
+
+    .zg-variant-switcher .zg-variant-toggle-dropdown {
+        float: right;
+        margin-top: 5px;
+        height: 100%;
+        background-image: url("/sitecore/shell/Themes/Standard/Images/menudropdown_black9x8.png");
+        background-position-x: 99%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .zg-variant-switcher .zg-variant-available {
+        float: left;
+    }
+
+    .zg-variant-switcher .zg-variant-list {
+        width: 85%;
+        float: left;
+        height: 1.75em;
+        margin-top: 1px;
+    }
+
+        .zg-variant-switcher .zg-variant-list:hover {
+            background-color: #e3e3e3;
+        }
+
+        .zg-variant-switcher .zg-variant-list .zg-variant-available {
+            width: 95%;
+        }
+
+        .zg-variant-switcher .zg-variant-list .zg-variant-toggle-dropdown {
+            width: 100%;
+        }
+
+        .zg-variant-switcher .zg-variant-list ul {
+            margin: auto;
+        }
+
+        .zg-variant-switcher .zg-variant-list li {
+            display: none;
+            cursor: pointer;
+        }
+
+            .zg-variant-switcher .zg-variant-list li.selected {
+                display: block;
+            }
+
+    .zg-variant-switcher.expanded li {
+        padding: 3px;
+        display: block;
+    }
+
+        .zg-variant-switcher.expanded li:hover {
+            background: #d0ebf6;
+        }
+
+    .zg-variant-switcher.expanded .zg-variant-toggle-dropdown {
+        width: 0%;
+    }
+
+    .zg-variant-switcher.expanded .zg-variant-available {
+        width: 100%;
+    }
+
+    .zg-variant-switcher.expanded .zg-variant-list {
+        height: auto;
+        box-sizing: border-box;
+        border: solid 1px #ccc;
+        border-top: none;
+        background: #ffffff;
+    }
+
+    .zg-variant-switcher.expanded .zg-variant-tip {
+        display: block;
+        background: #e3e3e3;
+        padding-top: 3px;
+        padding-left: 3px;
+        padding-bottom: 3px;
+        margin-top: 0px;
+        cursor: pointer;
+        font-weight: bold !important;
+    }
+
+#sxa-toolbox #sxa-search-box {
+    padding: 3px;
+    border-bottom: 1px solid #474747;
+}
+
+    #sxa-toolbox #sxa-search-box input {
+        width: 100%;
+        padding: 3px 6px;
+        margin-bottom: 3px;
+    }
+
+#sxa-toolbox .sxa-button-group {
+    text-align: right;
+}
+
+#sxa-toolbox.touch-version #sxa-search-box {
+    padding: 0 5px;
+    font-size: 1.2em;
+}
+
+    #sxa-toolbox.touch-version #sxa-search-box input {
+        margin-bottom: 5px;
+        padding: 4px 10px;
+    }
+
+#sxa-toolbox.touch-version #sxa-toolbox-root-ul {
+    margin-top: 0;
+}
+
+#sxa-toolbox.touch-version .sxa-button-group {
+    margin-bottom: 5px;
+}
+
+#sxa-toolbox .sxa-button-group button:not(first-child) {
+    margin-left: 3px;
+}
+
+#sxa-toolbox.touch-version .sxa-button-group button:not(first-child) {
+    margin-left: 6px;
+}
+
+#sxa-toolbox .sxa-button-group button {
+    border: 1px solid #474747;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    -moz-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    padding: 3px 6px;
+}
+
+#sxa-toolbox.touch-version .sxa-button-group button {
+    padding: 8px 6px;
+}
+
+    #sxa-toolbox .sxa-button-group button:hover {
+        color: white;
+        background-color: #474747;
+    }
+
+    #sxa-toolbox .sxa-button-group button:active {
+        background-color: #667273;
+    }

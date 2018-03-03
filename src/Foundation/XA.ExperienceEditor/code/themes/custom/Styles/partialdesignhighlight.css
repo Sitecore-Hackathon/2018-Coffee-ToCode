@@ -1,0 +1,15 @@
+.boldHighlight { background-color: rgb(180, 200, 0) !important; background-image: none !important; opacity: 0.7 !important; }
+.scHoverFrameSideVertical.boldHighlight { width: 2px; }
+.scHoverFrameSideHorizontal.boldHighlight { height: 2px; }
+ .scHilghlightedChrome.boldHighlight.scTlHoverFrameCorner, 
+ .scHilghlightedChrome.boldHighlight.scTrHoverFrameCorner,
+ .scHilghlightedChrome.boldHighlight.scBlHoverFrameCorner,
+ .scHilghlightedChrome.boldHighlight.scBrHoverFrameCorner {
+	width: 2px;
+	height: 2px;
+}
+
+.sxaFrame {
+    visibility: visible !important;
+    display: block !important;
+}
