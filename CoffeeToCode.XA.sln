@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{17DD5718-6E13-4F2C-9738-B410396D4552}"
 EndProject
@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		src\Foundation\XA.ExperienceEditor\code\App_Config\Include\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor.Serialization.config = src\Foundation\XA.ExperienceEditor\code\App_Config\Include\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor.Serialization.config
 		nuget.config = nuget.config
 		publishsettings.targets = publishsettings.targets
 		README.md = README.md
@@ -30,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D27C83
 		documentation\images\hackathon.png = documentation\images\hackathon.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeToCode.XA.Foundation.ExperienceEditor", "src\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor\code\CoffeeToCode.XA.Foundation.ExperienceEditor.csproj", "{6147DA2B-008F-4E07-BC64-B7DA77A728CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeToCode.XA.Foundation.ExperienceEditor", "src\Foundation\XA.ExperienceEditor\code\CoffeeToCode.XA.Foundation.ExperienceEditor.csproj", "{6147DA2B-008F-4E07-BC64-B7DA77A728CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
