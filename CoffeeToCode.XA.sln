@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D27C83
 		documentation\images\hackathon.png = documentation\images\hackathon.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeToCode.XA.Foundation.ExperienceEditor", "src\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor\CoffeeToCode.XA.Foundation.ExperienceEditor.csproj", "{6147DA2B-008F-4E07-BC64-B7DA77A728CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeToCode.XA.Foundation.ExperienceEditor", "src\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor\code\CoffeeToCode.XA.Foundation.ExperienceEditor.csproj", "{6147DA2B-008F-4E07-BC64-B7DA77A728CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
