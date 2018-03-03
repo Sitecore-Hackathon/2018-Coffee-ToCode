@@ -1,0 +1,28 @@
+﻿---
+ID: "b977a7ab-1b49-4d1f-94a5-a6cb0523c018"
+Parent: "86bad2ca-4321-4f44-8080-8d816268dccf"
+Template: "8861a098-f3cd-4fd3-9557-0bc6c33d738e"
+Path: /sitecore/client/Applications/ExperienceEditor/Pipelines/InitializePageEdit/CoffeeToCode
+DB: core
+SharedFields:
+- ID: "20d0bb88-0649-4714-a6dd-585dd4ca5b4e"
+  Hint: ProcessorFile
+  Value: /sitecore/shell/client/Sitecore/CoffeeToCode.XA/CoffeeToCode.js
+- ID: "9e91baa8-5cac-48e0-8ab2-04219118bf08"
+  Hint: ProcessorName
+  Value: execute
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 350
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180303T082832Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
