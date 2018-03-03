@@ -14,10 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		src\Foundation\XA.ExperienceEditor\code\App_Config\Include\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor.Serialization.config = src\Foundation\XA.ExperienceEditor\code\App_Config\Include\Foundation\CoffeeToCode.XA.Foundation.ExperienceEditor.Serialization.config
 		nuget.config = nuget.config
 		publishsettings.targets = publishsettings.targets
 		README.md = README.md
+		src\Foundation\XA.ExperienceEditor\code\App_Config\Include\z.CoffeeToCode.Serialization.config = src\Foundation\XA.ExperienceEditor\code\App_Config\Include\z.CoffeeToCode.Serialization.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{DAFED8F5-6CBD-4384-AAD6-DC3BCCF24911}"
