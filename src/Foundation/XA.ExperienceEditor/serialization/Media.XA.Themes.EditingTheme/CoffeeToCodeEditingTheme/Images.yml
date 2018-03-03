@@ -1,0 +1,18 @@
+﻿---
+ID: "270d7de9-8074-47e4-8afa-563e945a3254"
+Parent: "0e7acd2e-ccf1-4f04-855e-77269b8ef64b"
+Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
+Path: /sitecore/media library/Base Themes/CoffeeToCodeEditingTheme/Images
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/folder.png
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170216T082354Z
